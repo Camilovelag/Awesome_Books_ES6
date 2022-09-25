@@ -1,3 +1,5 @@
+import { settings, populateSettings } from "../src/modules/navBar.js";
+
 const listBooks = document.querySelector('.list-books');
 const booksContainer = document.querySelector('.books-wrapper');
 const form = document.querySelector('.form-input');
@@ -79,34 +81,34 @@ form.addEventListener('submit', (e) => {
 Book.displayBooks();
 populateFields();
 
-const settings = {
-  list: {
-    display: ['block', 'none', 'none'],
-    color: ['#0000ff', '#333', '#333'],
-  },
-  addNew: {
-    display: ['none', 'block', 'none'],
-    color: ['#333', '#0000ff', '#333'],
-  },
-  contact: {
-    display: ['none', 'none', 'block'],
-    color: ['#333', '#333', '#0000ff'],
-  },
-};
+// const settings = {
+//   list: {
+//     display: ['block', 'none', 'none'],
+//     color: ['#0000ff', '#333', '#333'],
+//   },
+//   addNew: {
+//     display: ['none', 'block', 'none'],
+//     color: ['#333', '#0000ff', '#333'],
+//   },
+//   contact: {
+//     display: ['none', 'none', 'block'],
+//     color: ['#333', '#333', '#0000ff'],
+//   },
+// };
 
-/* eslint-disable */
+// /* eslint-disable */
 
-const populateSettings = (i) => {
-  booksContainer.style.display = i.display[0];
-  form.style.display = i.display[1];
-  contact.style.display = i.display[2];
+// const populateSettings = (i) => {
+//   booksContainer.style.display = i.display[0];
+//   form.style.display = i.display[1];
+//   contact.style.display = i.display[2];
 
-  listPage.style.color = i.color[0];
-  addNewPage.style.color = i.color[1];
-  contactPage.style.color = i.color[2];
-};
+//   listPage.style.color = i.color[0];
+//   addNewPage.style.color = i.color[1];
+//   contactPage.style.color = i.color[2];
+// };
 
-/* eslint-enable */
+// /* eslint-enable */
 
 listPage.addEventListener('click', () => {
   populateSettings(settings.list);
