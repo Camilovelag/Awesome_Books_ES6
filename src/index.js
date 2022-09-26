@@ -25,9 +25,7 @@ author.addEventListener('change', () => {
   inputBook.author = author.value;
 });
 
-const populateFields = () => {
-  localStorage.setItem('savedBooks', JSON.stringify(books));
-};
+
 
 const Book = class {
   constructor(title, author) {
@@ -38,13 +36,17 @@ const Book = class {
   static removeBook(book) {
     const result = books.filter((b) => b !== book);
     books = result;
-    populateFields();
+    this.populateFields();
   }
 
   static addBook = (newBook) => {
     books.push(newBook);
-    populateFields();
+    this.populateFields();
     this.displayBooks();
+  };
+
+  static populateFields = () => {
+    localStorage.setItem('savedBooks', JSON.stringify(books));
   };
 
   static displayBooks = () => {
@@ -79,7 +81,7 @@ form.addEventListener('submit', (e) => {
 });
 
 Book.displayBooks();
-populateFields();
+Book.populateFields();
 
 // const settings = {
 //   list: {
