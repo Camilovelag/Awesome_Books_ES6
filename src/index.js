@@ -1,4 +1,5 @@
 import { settings, populateSettings } from "../src/modules/navBar.js";
+// import Book from "../src/modules/book.js";
 
 const listBooks = document.querySelector('.list-books');
 const booksContainer = document.querySelector('.books-wrapper');
@@ -10,12 +11,20 @@ const listPage = document.querySelector('.list-page');
 const addNewPage = document.querySelector('.add-new-page');
 const contactPage = document.querySelector('.contact-page');
 
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
+
 const inputBook = {};
 let books = new Array([]);
 
 if (localStorage.savedBooks) {
   books = JSON.parse(localStorage.getItem('savedBooks'));
 }
+
 
 title.addEventListener('change', () => {
   inputBook.title = title.value;
@@ -25,13 +34,7 @@ author.addEventListener('change', () => {
   inputBook.author = author.value;
 });
 
-
-
-const Book = class {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
+class BookCollection{
 
   static removeBook(book) {
     const result = books.filter((b) => b !== book);
@@ -76,41 +79,13 @@ const Book = class {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  Book.addBook(new Book(inputBook.title, inputBook.author));
+  BookCollection.addBook(new Book(inputBook.title, inputBook.author));
   form.submit();
 });
 
-Book.displayBooks();
-Book.populateFields();
+BookCollection.populateFields();
+BookCollection.displayBooks();
 
-// const settings = {
-//   list: {
-//     display: ['block', 'none', 'none'],
-//     color: ['#0000ff', '#333', '#333'],
-//   },
-//   addNew: {
-//     display: ['none', 'block', 'none'],
-//     color: ['#333', '#0000ff', '#333'],
-//   },
-//   contact: {
-//     display: ['none', 'none', 'block'],
-//     color: ['#333', '#333', '#0000ff'],
-//   },
-// };
-
-// /* eslint-disable */
-
-// const populateSettings = (i) => {
-//   booksContainer.style.display = i.display[0];
-//   form.style.display = i.display[1];
-//   contact.style.display = i.display[2];
-
-//   listPage.style.color = i.color[0];
-//   addNewPage.style.color = i.color[1];
-//   contactPage.style.color = i.color[2];
-// };
-
-// /* eslint-enable */
 
 listPage.addEventListener('click', () => {
   populateSettings(settings.list);
