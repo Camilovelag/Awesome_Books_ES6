@@ -18,22 +18,6 @@ class Book {
   }
 }
 
-const inputBook = {};
-let books = new Array([]);
-
-if (localStorage.savedBooks) {
-  books = JSON.parse(localStorage.getItem('savedBooks'));
-}
-
-
-title.addEventListener('change', () => {
-  inputBook.title = title.value;
-});
-
-author.addEventListener('change', () => {
-  inputBook.author = author.value;
-});
-
 class BookCollection{
 
   static removeBook(book) {
@@ -76,6 +60,24 @@ class BookCollection{
     });
   };
 };
+
+
+const inputBook = {};
+let books = new Array([]);
+
+if (localStorage.savedBooks) {
+  books = JSON.parse(localStorage.getItem('savedBooks'));
+}
+
+
+title.addEventListener('change', () => {
+  inputBook.title = title.value;
+});
+
+author.addEventListener('change', () => {
+  inputBook.author = author.value;
+});
+
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
