@@ -1,5 +1,6 @@
 import { settings, populateSettings } from "../src/modules/navBar.js";
 import Book from "../src/modules/book.js";
+import { DateTime } from "../src/modules/luxon.js";
 
 const listBooks = document.querySelector('.list-books');
 const form = document.querySelector('.form-input');
@@ -8,6 +9,11 @@ const [title, author] = form.elements;
 const listPage = document.querySelector('.list-page');
 const addNewPage = document.querySelector('.add-new-page');
 const contactPage = document.querySelector('.contact-page');
+
+const dateBox = document.querySelector('.date');
+const dt = DateTime.now();
+
+dateBox.innerHTML = `${dt.monthLong} ${dt.day} ${dt.weekYear}, ${dt.hour}:${dt.minute}:${dt.second}`;
 
 class BookCollection{
 

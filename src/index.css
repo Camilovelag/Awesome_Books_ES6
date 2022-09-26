@@ -132,3 +132,13 @@ a {
 .margin {
   margin: 2rem auto;
 }
+
+.date {
+  display: flex;
+  max-width: 40rem;
+  font-size: 0.8rem;
+  justify-content: flex-end;
+  margin: -2rem auto 0;
+
+
+}
