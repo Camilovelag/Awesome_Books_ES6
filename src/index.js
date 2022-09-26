@@ -1,22 +1,13 @@
 import { settings, populateSettings } from "../src/modules/navBar.js";
-// import Book from "../src/modules/book.js";
+import Book from "../src/modules/book.js";
 
 const listBooks = document.querySelector('.list-books');
-const booksContainer = document.querySelector('.books-wrapper');
 const form = document.querySelector('.form-input');
-const contact = document.querySelector('.contact');
 const [title, author] = form.elements;
 
 const listPage = document.querySelector('.list-page');
 const addNewPage = document.querySelector('.add-new-page');
 const contactPage = document.querySelector('.contact-page');
-
-class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
-}
 
 class BookCollection{
 
@@ -61,34 +52,12 @@ class BookCollection{
   };
 };
 
-class App {
-  constructor() {
-    this.bl = [];
-    console.log(this.bl);
-  }
-}
-
 const inputBook = {};
-let books = new App();
+let books = new Array();
 
 if (localStorage.savedBooks) {
   books = JSON.parse(localStorage.getItem('savedBooks'));
 }
-
-
-
-
-// let test = new App();
-
-// if (localStorage.savedBooks) {
-//   test = JSON.parse(localStorage.getItem('savedBooks'));
-// }
-
-// console.log(test);
-
-
-
-
 
 title.addEventListener('change', () => {
   inputBook.title = title.value;
