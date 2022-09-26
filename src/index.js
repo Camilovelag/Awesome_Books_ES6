@@ -1,6 +1,6 @@
-import { settings, populateSettings } from "../src/modules/navBar.js";
-import Book from "../src/modules/book.js";
-import { DateTime } from "../src/modules/luxon.js";
+import { settings, populateSettings } from './modules/navBar.js';
+import Book from './modules/book.js';
+import { DateTime } from './modules/luxon.js';
 
 const listBooks = document.querySelector('.list-books');
 const form = document.querySelector('.form-input');
@@ -15,8 +15,10 @@ const dt = DateTime.now();
 
 dateBox.innerHTML = `${dt.monthLong} ${dt.day} ${dt.weekYear}, ${dt.hour}:${dt.minute}:${dt.second}`;
 
-class BookCollection{
+const inputBook = {};
+let books = new Array();
 
+class BookCollection {
   static removeBook(book) {
     const result = books.filter((b) => b !== book);
     books = result;
@@ -55,11 +57,8 @@ class BookCollection{
       });
       return listBooks;
     });
-  };
+  }
 };
-
-const inputBook = {};
-let books = new Array();
 
 if (localStorage.savedBooks) {
   books = JSON.parse(localStorage.getItem('savedBooks'));
@@ -73,7 +72,6 @@ author.addEventListener('change', () => {
   inputBook.author = author.value;
 });
 
-
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   BookCollection.addBook(new Book(inputBook.title, inputBook.author));
@@ -82,7 +80,6 @@ form.addEventListener('submit', (e) => {
 
 BookCollection.populateFields();
 BookCollection.displayBooks();
-
 
 listPage.addEventListener('click', () => {
   populateSettings(settings.list);
