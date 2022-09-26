@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Camilovelag/Awesome_Books_ES6/issues"
   },
-  "homepage": "https://github.com/Camilovelag/Awesome_Books_ES6#readme"
+  "homepage": "https://github.com/Camilovelag/Awesome_Books_ES6#readme",
+  "devDependencies": {
+    "eslint": "^8.24.0"
+  }
 }

@@ -16,7 +16,7 @@ const dt = DateTime.now();
 dateBox.innerHTML = `${dt.monthLong} ${dt.day} ${dt.weekYear}, ${dt.hour}:${dt.minute}:${dt.second}`;
 
 const inputBook = {};
-let books = new Array();
+let books = [];
 
 class BookCollection {
   static removeBook(book) {
@@ -58,7 +58,7 @@ class BookCollection {
       return listBooks;
     });
   }
-};
+}
 
 if (localStorage.savedBooks) {
   books = JSON.parse(localStorage.getItem('savedBooks'));
