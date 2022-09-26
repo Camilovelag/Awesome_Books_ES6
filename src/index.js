@@ -61,13 +61,33 @@ class BookCollection{
   };
 };
 
+class App {
+  constructor() {
+    this.bl = [];
+    console.log(this.bl);
+  }
+}
 
 const inputBook = {};
-let books = new Array([]);
+let books = new App();
 
 if (localStorage.savedBooks) {
   books = JSON.parse(localStorage.getItem('savedBooks'));
 }
+
+
+
+
+// let test = new App();
+
+// if (localStorage.savedBooks) {
+//   test = JSON.parse(localStorage.getItem('savedBooks'));
+// }
+
+// console.log(test);
+
+
+
 
 
 title.addEventListener('change', () => {
