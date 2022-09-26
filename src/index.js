@@ -25,17 +25,17 @@ class BookCollection {
     this.populateFields();
   }
 
-  static addBook = (newBook) => {
+  static addBook(newBook) {
     books.push(newBook);
     this.populateFields();
     this.displayBooks();
-  };
+  }
 
-  static populateFields = () => {
+  static populateFields() {
     localStorage.setItem('savedBooks', JSON.stringify(books));
-  };
+  }
 
-  static displayBooks = () => {
+  static displayBooks() {
     listBooks.innerHTML = '';
     books.map((book) => {
       const bookDiv = document.createElement('tr');
